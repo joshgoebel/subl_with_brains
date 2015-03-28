@@ -13,6 +13,7 @@ import os
 import sys
 
 SUBL = "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
+VERSION_INFO = "subl (with brains) 0.1"
 
 
 def passthru():
@@ -29,6 +30,8 @@ paths = []
 switches = []
 
 for arg in sys.argv[1:]:
+    if arg == "-v":
+        print(VERSION_INFO)
     # bail if we're asking for a project directly
     if arg.startswith("--project"):
         passthru()
