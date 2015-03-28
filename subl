@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+"""
+Brings back a more TextMate (TM) like experience of opening the project
+for a given folder when you ask subl to open a folder.  This assumes
+your project files are stored in the same folder and with a name matching
+that of the folder.
+
+Example:
+
+subl /source/skynet -> subl --project /source/skynet.sublime-project
+"""
+import os
+import sys
+
+SUBL = "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
+
+
+def passthru():
+    binary = "'{}' ".format(SUBL)
+    os.system((binary + " ".join(sys.argv)))
+    exit()
+
+
+def open_project(file, args):
+    binary = "'{}' ".format(SUBL)
+    os.system((binary + " --project '{}' ".format(file) + " ".join(args)))
+
+paths = []
+switches = []
+
+for arg in sys.argv[1:]:
+    # bail if we're asking for a project directly
+    if arg.startswith("--project"):
+        passthru()
+    # store switches to pass them back later
+    if arg.startswith("-"):
+        switches.append(arg)
+        continue
+    paths.append(arg)
+
+# pass thru is we're given more than 1 file
+if len(paths) != 1:
+    passthru()
+
+path = paths[0]
+abs_path = os.path.abspath(path)
+# bail if the path doesn't seem to be correct
+if not os.path.exists(abs_path) or not os.path.isdir(abs_path):
+    passthru()
+
+# regarding use of os.path.realpath:
+# we want to allow symlinking also so a symlink 'short' -> 'longname'
+# would search for both short.sublime-project and longname.sublime-project
+realpath = os.path.realpath(path)
+for p in (realpath, abs_path):
+    basename = os.path.basename(p)
+    pfile = "{}.sublime-project".format(basename)
+    full_pfile = os.path.join(p + "/", pfile)
+    if os.path.exists(full_pfile):
+        open_project(full_pfile, switches)
+        break
+else:
+    passthru()
