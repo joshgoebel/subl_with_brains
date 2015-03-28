@@ -45,4 +45,4 @@ It'd be easy enough to handle that edge case (I was just solving my own problem 
 
 ### I'm on Windows, how do I use this?
 
-**I don't know.**  Right now it surely won't work because the hard-coded path is a Mac path.  Pull requests to update this section are welcome if you're a Windows guy.  
+**I don't know.**  Right now it surely won't work because the hard-coded path is a Mac path.  Pull requests to update this section are welcome if you're a Windows guy (or gal).  
