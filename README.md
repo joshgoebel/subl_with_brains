@@ -1,22 +1,25 @@
 # subl (with brains)
 
-## Summary
+subl_with_brains is a wrapper for the subl command line tool that attempts to load projects (rather than folders) whenever it can.
 
-subl_with_brains is a modified subl executable that attemps to load projects instead of folders when you ask subl to open a folder.  
-
-### Example:
+## Example:
 
 Lets say you have the project folder `/secret/source/skynet`:
 
     # you run
     $ subl /secret/source/skynet
     
-    # what really happens
+    # this is what happens
     $ subl --project /secret/source/skynet/skynet.sublime-project
 
-What actually happens is `skynet` is searched for `skynet.sublime-project` and if that file exists then it is opened as a project.  If a project file can't be found then the original `subl` is called as usual.  
+Behind the scenes `/secret/source/skynet` is searched for `skynet.sublime-project`.  If that file exists then it is opened as a project.  If it can't be found then the real `subl` is called as usual and will behave as it regularly would.
 
-Any arguments you pass should be passed thru to the real `subl` just any single directory argument will be remapped to `--project`.  `subl_with_brains` is just acting as a wrapper around the real executable.
+Any other arguments you pass in will simply be passed to the real `subl`.
+
+## Why
+
+I'm too spoiled by TextMate where this behavior is the default.
+
 
 ## Installation
 
