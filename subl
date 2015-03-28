@@ -4,10 +4,6 @@ Brings back a more TextMate (TM) like experience of opening the project
 for a given folder when you ask subl to open a folder.  This assumes
 your project files are stored in the same folder and with a name matching
 that of the folder.
-
-Example:
-
-subl /source/skynet -> subl --project /source/skynet.sublime-project
 """
 import os
 import sys
