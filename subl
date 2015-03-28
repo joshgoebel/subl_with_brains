@@ -18,13 +18,14 @@ VERSION_INFO = "subl (with brains) 0.1"
 
 def passthru():
     binary = "'{}' ".format(SUBL)
-    os.system((binary + " ".join(sys.argv)))
+    args = sys.argv[1:]
+    os.system(binary + " ".join(args))
     exit()
 
 
 def open_project(file, args):
     binary = "'{}' ".format(SUBL)
-    os.system((binary + " --project '{}' ".format(file) + " ".join(args)))
+    os.system(binary + " --project '{}' ".format(file) + " ".join(args))
 
 paths = []
 switches = []
