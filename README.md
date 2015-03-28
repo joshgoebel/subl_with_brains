@@ -22,7 +22,7 @@ Any arguments you pass should be passed thru to the real `subl` just any single 
 
     # ~/bin should be in your PATH
     mkdir ~/bin
-    https://raw.githubusercontent.com/yyyc514/subl_project/master/subl > \
+    https://raw.githubusercontent.com/yyyc514/subl_with_brains/master/subl > \
     ~/bin/subl
     chmod +x ~/bin/subl
     subl -v
