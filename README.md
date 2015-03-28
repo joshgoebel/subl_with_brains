@@ -31,18 +31,18 @@ Any arguments you pass should be passed thru to the real `subl` just any single 
 
 After installation you may need to tweak the SUBL variable to point to your installation of  Sublime Text if it's not at the default /Applications/ location.
 
-
-## I have my project files all store in a single directory somwhere
-
-It'd be easy enough to handle that edge case (I was just solving my own problem here), please submit a pull request.
-
-
-## I'm on Windows, how do I use this?
-
-**I don't know.**  Right now it surely won't work because the hard-coded path is a Mac path.  Pull requests to update this section are welcome if you're a Windows guy.  
-
-
 ## Contributions
 
 Contributions are welcome, just submit a pull request on GitHub.
 
+
+## FAQ
+
+###  I have my project files all stored in a single directory...
+
+It'd be easy enough to handle that edge case (I was just solving my own problem here), please submit a pull request.
+
+
+### I'm on Windows, how do I use this?
+
+**I don't know.**  Right now it surely won't work because the hard-coded path is a Mac path.  Pull requests to update this section are welcome if you're a Windows guy.  
