@@ -12,7 +12,7 @@ Lets say you have the project folder `/secret/source/skynet`:
     $ subl /secret/source/skynet
     
     # what really happens
-    $ subl --project /secret/source/skynet.sublime-project
+    $ subl --project /secret/source/skynet/skynet.sublime-project
 
 What actually happens is `skynet` is searched for `skynet.sublime-project` and if that file exists then it is opened as a project.  If a project file can't be found then the original `subl` is called as usual.  
 
