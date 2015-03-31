@@ -14,8 +14,11 @@ VERSION_INFO = "subl (with brains) v0.2"
 
 
 def passthru(*extra_args):
-    args = sys.argv[1:]
-    opts = (BINARY,) + tuple(extra_args) + tuple(args)
+    if extra_args:
+        args = tuple(extra_args) + tuple(switches)
+    else:
+        args = tuple(sys.argv[1:])
+    opts = (BINARY,) + args
     subprocess.call(opts)
     exit()
 
