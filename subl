@@ -7,21 +7,21 @@ that of the folder.
 """
 import os
 import sys
+import subprocess
 
-SUBL = "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
-VERSION_INFO = "subl (with brains) 0.1"
+BINARY = "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
+VERSION_INFO = "subl (with brains) v0.2"
 
 
-def passthru():
-    binary = "'{}' ".format(SUBL)
+def passthru(*extra_args):
     args = sys.argv[1:]
-    os.system(binary + " ".join(args))
+    opts = (BINARY,) + tuple(extra_args) + tuple(args)
+    subprocess.call(opts)
     exit()
 
 
 def open_project(file, args):
-    binary = "'{}' ".format(SUBL)
-    os.system(binary + " --project '{}' ".format(file) + " ".join(args))
+    passthru("--project", file)
 
 paths = []
 switches = []
